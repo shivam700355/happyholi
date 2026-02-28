@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>😂 Happy Holi • friends special • games & gulal</title>
+    <!-- Font Awesome 6 free icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f6d5f7, #fbe9d2, #a7e6ff, #c9f9c6);
+            background-size: 400% 400%;
+            animation: waveBG 12s ease infinite;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes waveBG {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* flying gulal papers / funny emojis */
+        .floating-fun {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-fun i, .floating-fun div {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.5;
+            animation: flyAround 10s infinite alternate;
+            color: #ff7b9c;
+        }
+
+        @keyframes flyAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(80px, -60px) rotate(180deg); }
+        }
+
+        /* main funny card */
+        .friends-zone {
+            position: relative;
+            z-index: 20;
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 80px 20px 80px 20px;
+            border: 4px solid white;
+            box-shadow: 0 30px 40px rgba(255, 120, 160, 0.5), 0 0 0 12px rgba(255, 250, 180, 0.4);
+            padding: 30px 25px;
+        }
+
+        /* header with gang name */
+        .gang-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background: #fcee8f;
+            border-radius: 60px;
+            padding: 20px 25px;
+            border: 5px dotted #ff3f6b;
+            transform: rotate(-1deg);
+            box-shadow: 0 12px 0 #ff9ebb;
+            margin-bottom: 30px;
+        }
+
+        .gang-header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #d62976, #fa7e1e, #f5b342, #48cae4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 4px 4px 0 #fffcd9;
+        }
+
+        .gang-header i {
+            font-size: 3.8rem;
+            color: #d62828;
+            filter: drop-shadow(2px 8px 0 #f7b2b2);
+        }
+
+        /* friend cards grid */
+        .friend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .friend-card {
+            background: rgba(255, 241, 220, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 50px 10px 50px 10px;
+            padding: 25px 15px 20px;
+            border: 4px solid white;
+            text-align: center;
+            box-shadow: 0 18px 0 #ffaaab, 0 0 0 4px #fdc7d5;
+            transition: all 0.15s ease;
+            cursor: pointer;
+            position: relative;
+            animation: popIn 0.5s ease backwards;
+        }
+
+        .friend-card:nth-child(1) { animation-delay: 0.1s; }
+        .friend-card:nth-child(2) { animation-delay: 0.3s; }
+        .friend-card:nth-child(3) { animation-delay: 0.5s; }
+        .friend-card:nth-child(4) { animation-delay: 0.7s; }
+        .friend-card:nth-child(5) { animation-delay: 0.9s; }
+
+        @keyframes popIn {
+            0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+            80% { transform: scale(1.05); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .friend-card:hover {
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 25px 0 #f65b7a;
+            background: #fffbea;
+        }
+
+        .friend-card i {
+            font-size: 4.5rem;
+            background: linear-gradient(135deg, #fb8da0, #f4d03f, #5dade2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .friend-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #b34180;
+            text-shadow: 2px 2px 0 #ffd966;
+            margin: 10px 0 5px;
+        }
+
+        .funny-quote {
+            background: #f6d5a3;
+            padding: 12px 6px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #872341;
+            border: 3px solid #fefae0;
+        }
+
+        .prank-badge {
+            position: absolute;
+            top: -15px;
+            right: -10px;
+            background: #ffb703;
+            color: #023047;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid white;
+            transform: rotate(15deg);
+            box-shadow: 0 6px 0 #fb8500;
+        }
+
+        /* funny games section */
+        .games-title {
+            font-size: 3rem;
+            text-align: center;
+            margin: 40px 0 25px;
+            background: #ffc8dd;
+            padding: 15px 0;
+            border-radius: 60px;
+            border: 5px solid #cdb4db;
+            color: #590d22;
+            font-weight: 900;
+            text-shadow: 4px 4px 0 #ffe5b4;
+            box-shadow: 0 10px 0 #b5838d;
+        }
+
+        .games-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .game-card {
+            flex: 1 1 250px;
+            background: #e5b3fe;
+            border: 5px solid white;
+            border-radius: 70px 10px 70px 10px;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 20px 0 #9d6b8c, 0 0 0 5px #f9c74f;
+            transition: 0.2s;
+        }
+
+        .game-card:hover {
+            transform: scale(1.02) rotate(-1deg);
+            box-shadow: 0 25px 0 #bd7f9a;
+        }
+
+        .game-card i {
+            font-size: 5rem;
+            color: #fbff00;
+            -webkit-text-stroke: 4px #d00000;
+            text-shadow: 0 10px 0 #b7094c;
+        }
+
+        .game-card h3 {
+            font-size: 2.2rem;
+            background: #fff3b0;
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 40px;
+            margin: 15px 0;
+            border: 3px solid blue;
+        }
+
+        .game-card button {
+            background: #ffbd00;
+            border: none;
+            font-size: 1.9rem;
+            font-weight: bold;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 4px solid white;
+            box-shadow: 0 8px 0 #ca6702;
+            transition: 0.05s linear;
+            color: #370617;
+            margin-top: 10px;
+        }
+
+        .game-card button:active {
+            transform: translateY(8px);
+            box-shadow: 0 0 0 #ca6702;
+        }
+
+        /* color burst + funny slider */
+        .color-chaos {
+            background: #ffe5b9;
+            border-radius: 100px 20px 100px 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 6px ridge #ff99c8;
+            box-shadow: inset 0 0 30px #fbbb2d;
+            text-align: center;
+        }
+
+        .color-chaos p {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .mood-slider {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0 10px;
+        }
+
+        .slider-container {
+            background: #b8f2e6;
+            padding: 20px;
+            border-radius: 60px;
+            border: 5px solid #ff90b3;
+        }
+
+        input[type=range] {
+            width: 280px;
+            height: 35px;
+            background: linear-gradient(90deg, #ff758f, #ffb347, #a2d729, #48cae4);
+            border-radius: 50px;
+            -webkit-appearance: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            border: 6px solid #ff0a54;
+            box-shadow: 0 6px 0 #b52121;
+            cursor: pointer;
+        }
+
+        #sliderValue {
+            font-size: 3rem;
+            font-weight: 800;
+            background: black;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* friend-specific inside jokes */
+        .joke-reveal {
+            font-size: 2rem;
+            background: #c77dff;
+            padding: 20px;
+            border-radius: 50px;
+            color: #fdffb8;
+            border: 6px double #f72585;
+        }
+
+        /* footer madness */
+        .footer-boom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffbaba;
+            border-radius: 40px 10px 40px 10px;
+            padding: 25px;
+            border: 8px solid #f5c542;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #590d22;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-boom i {
+            font-size: 3rem;
+            animation: spin 2s infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* moving eyes */
+        .moving-eyes {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            .gang-header h1 { font-size: 2.5rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="floating-fun">
+        <i class="fas fa-face-grin-tongue-squint" style="top: 5%; left: 2%;"></i>
+        <i class="fas fa-face-laugh-beam" style="top: 70%; left: 90%;"></i>
+        <i class="fas fa-face-smile-wink" style="top: 20%; left: 70%;"></i>
+        <i class="fas fa-face-surprise" style="top: 80%; left: 15%;"></i>
+        <i class="fas fa-face-kiss-wink-heart" style="top: 45%; left: 45%;"></i>
+        <div style="top: 30%; left: 30%;">🌈</div>
+        <div style="top: 60%; left: 75%;">🎉</div>
+    </div>
+
+    <div class="friends-zone">
+        <!-- header -->
+        <div class="gang-header">
+            <i class="fas fa-hippo"></i>
+            <h1>😂 HAPPY HOLI GANG 😂</h1>
+            <i class="fas fa-otter"></i>
+        </div>
+
+        <!-- FRIENDS CARDS (5 friends) -->
+        <div class="friend-grid">
+            <!-- Abhishek Sir -->
+            <div class="friend-card" id="abhishek">
+                <div class="prank-badge"><i class="fas fa-hand-peace"></i></div>
+                <i class="fas fa-chalkboard-user"></i>
+                <div class="friend-name">👨‍🏫 Abhishek Sir</div>
+                <div class="funny-quote">"Holi me bhi homework? 😱"</div>
+                <small style="font-size: 1.2rem;">(sir ke rang: whiteboard marker)</small>
+            </div>
+            <!-- Nandini -->
+            <div class="friend-card" id="nandini">
+                <div class="prank-badge"><i class="fas fa-heart"></i></div>
+                <i class="fas fa-frog"></i>
+                <div class="friend-name">🌸 Nandini</div>
+                <div class="funny-quote">"Mujhe mat rang dena... 😤"</div>
+                <small>(lekin sabse zyada rang)</small>
+            </div>
+            <!-- Avni -->
+            <div class="friend-card" id="avni">
+                <div class="prank-badge"><i class="fas fa-crown"></i></div>
+                <i class="fas fa-dragon"></i>
+                <div class="friend-name">✨ Avni</div>
+                <div class="funny-quote">"Pehle pichkari leke aao 😎"</div>
+                <small>colour queen</small>
+            </div>
+            <!-- Pooja -->
+            <div class="friend-card" id="pooja">
+                <div class="prank-badge"><i class="fas fa-poo"></i></div>
+                <i class="fas fa-cat"></i>
+                <div class="friend-name">🌸 POoja</div>
+                <div class="funny-quote">"Oo POoja, teri masti 😂"</div>
+                <small>dry holi? nah!</small>
+            </div>
+            <!-- Raunak -->
+            <div class="friend-card" id="raunak">
+                <div class="prank-badge"><i class="fas fa-rocket"></i></div>
+                <i class="fas fa-dog"></i>
+                <div class="friend-name">🚀 Raunak</div>
+                <div class="funny-quote">"Bhaag raha hai rang se 😂"</div>
+                <small>pakda jaayega</small>
+            </div>
+        </div>
+
+        <!-- FUNNY GAMES section -->
+        <div class="games-title">
+            <i class="fas fa-gamepad"></i> COLOUR FUN GAMES <i class="fas fa-face-smile"></i>
+        </div>
+
+        <div class="games-grid">
+            <!-- Game 1: Pichkari shooter -->
+            <div class="game-card">
+                <i class="fas fa-water"></i>
+                <h3>Pichkari</h3>
+                <button onclick="alert('🧨 ABHISHEK SIR pe chhidi! 🧨\n(just kidding, sir rocks!)')">🔫 SHOOT</button>
+            </div>
+            <!-- Game 2: Gulal bomb -->
+            <div class="game-card">
+                <i class="fas fa-cloud-moon"></i>
+                <h3>Gulal Bomb</h3>
+                <button onclick="gulalBlast()">💥 BLAST</button>
+            </div>
+            <!-- Game 3: Colour pick for Nandini -->
+            <div class="game-card">
+                <i class="fas fa-palette"></i>
+                <h3>Nandini</h3>
+                <button onclick="nandiniRoast()">🎨 RANG DE</button>
+            </div>
+            <!-- Game 4: Raunak escape -->
+            <div class="game-card">
+                <i class="fas fa-person-running"></i>
+                <h3>Raunak</h3>
+                <button onclick="catchRaunak()">🏃 CATCH</button>
+            </div>
+        </div>
+
+        <!-- funny slider interaction (colour chaos) -->
+        <div class="color-chaos">
+            <p><i class="fas fa-face-laugh-squint"></i> HOLI KA MOSAM <i class="fas fa-face-laugh-squint"></i></p>
+            <div class="mood-slider">
+                <div class="slider-container">
+                    <label style="font-size:2rem;">Kitna rang ho?</label> <br>
+                    <input type="range" id="holiRange" min="0" max="100" value="50">
+                    <div id="sliderValue">50% 🌈</div>
+                </div>
+                <div class="joke-reveal" id="jokeBox">
+                    <span id="dynamicJoke">Abhishek Sir ko bachao!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer with all names animated -->
+        <div class="footer-boom">
+            <span><i class="fas fa-heart"></i> ABHISHEK Sir</span>
+            <span><i class="fas fa-heart"></i> NANDINI</span>
+            <span><i class="fas fa-heart"></i> AVNI</span>
+            <span><i class="fas fa-heart"></i> POOJA</span>
+            <span><i class="fas fa-heart"></i> RAUNAK</span>
+            <i class="fas fa-face-grin-stars"></i>
+        </div>
+
+        <!-- hidden funny note -->
+        <div style="text-align:center; margin-top:20px; opacity:0.8; font-size:1.6rem; background:#fee440; border-radius:40px; padding:8px;">
+            ⭐ HOLI MUBARAK HO DOSTO ⭐
+        </div>
+    </div>
+
+    <!-- all funny interaction JavaScript -->
+    <script>
+        // gulal blast game (random friend)
+        function gulalBlast() {
+            const friends = ['Abhishek Sir', 'Nandini', 'Avni', 'POoja', 'Raunak'];
+            const randomFriend = friends[Math.floor(Math.random() * friends.length)];
+            const colors = ['गुलाबी', 'पीला', 'नीला', 'हरा', 'जामुनी'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            alert(`💢 गुलाल बममम! 💢\n${randomFriend} पर ${randomColor} colour फटा! 😂\nPoora mood खराब? 🤪`);
+        }
+
+        // nandini special roast
+        function nandiniRoast() {
+            alert("🌸 नंदिनी बोली: 'मुझे मत छुओ वरना...' 🌸\n💖 लेकिन फिर भी प्यार से रंग दिया 💖");
+        }
+
+        // catch raunak game
+        function catchRaunak() {
+            alert("🚨 RAUNAK भाग रहा है! 🚨\nपकड़ लो... ओह रंग लग गया! अब पीछा करो 😂");
+        }
+
+        // slider animation with friend jokes
+        const range = document.getElementById('holiRange');
+        const displayVal = document.getElementById('sliderValue');
+        const jokeSpan = document.getElementById('dynamicJoke');
+
+        function updateJoke(value) {
+            if (value < 20) {
+                jokeSpan.innerText = "अभी तो POOja ने आना है 😏";
+            } else if (value < 40) {
+                jokeSpan.innerText = "अभिषेक सर पढ़ा रहे? होली है sir 😂";
+            } else if (value < 60) {
+                jokeSpan.innerText = "अवनी & नंदिनी रंग लगाओ 💦";
+            } else if (value < 80) {
+                jokeSpan.innerText = "रौनक गीला... बच के रहो! 🏃";
+            } else {
+                jokeSpan.innerText = "सब डूब गए! बचाओ POOja aur Nandini 🤣";
+            }
+        }
+
+        if (range) {
+            range.addEventListener('input', function () {
+                const val = range.value;
+                displayVal.innerText = val + '% 🌈';
+                updateJoke(val);
+            });
+            // set default
+            updateJoke(50);
+        }
+
+        // extra fun: click on any friend card shows personalised message
+        const cards = document.querySelectorAll('.friend-card');
+        cards.forEach(card => {
+            card.addEventListener('click', function (e) {
+                const nameElem = this.querySelector('.friend-name');
+                if (!nameElem) return;
+                let name = nameElem.innerText;
+                // clean names
+                if (name.includes('Abhishek')) {
+                    alert('👨‍🏫 Abhishek Sir: "Holi homework: 10 litres of colour!" 🤣');
+                } else if (name.includes('Nandini')) {
+                    alert('🌸 Nandini ko rainbow rang pasand! 🌈❤️');
+                } else if (name.includes('Avni')) {
+                    alert('✨ Avni ne kaha: "Mast colour, masti!"');
+                } else if (name.includes('POoja')) {
+                    alert('🌸 POoja ki holi — masti aur thoda sa rang 😜');
+                } else if (name.includes('Raunak')) {
+                    alert('🚀 Raunak pakda gaya! Ab rang hi rang 😁');
+                } else {
+                    alert('HOLI HAI DOST 🎉');
+                }
+            });
+        });
+
+        // extra slider animation trigger
+        setInterval(() => {
+            // just for fun - randomly change slider? nah, but we can wiggle footer
+            let footer = document.querySelector('.footer-boom');
+            if (footer) {
+                footer.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 70%)`;
+            }
+        }, 1200);
+    </script>
+
+    <!-- tiny style for dynamicJoke box -->
+    <style>
+        #dynamicJoke {
+            transition: all 0.2s;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: #f6d5f7;
+            padding: 15px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+    </style>
+    <!-- ready to rock this holi with friends! -->
+</body>
+</html>
